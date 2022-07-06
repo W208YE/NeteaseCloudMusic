@@ -1,30 +1,32 @@
 <template>
-  <div id="nav">
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-  </div>
+  <!-- 路由占位符 -->
   <router-view/>
+  <FooterMusic v-show="$store.state.isFooterMusic" />
 </template>
 
-<style lang="less">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
-
-#nav {
-  padding: 30px;
-
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
-    }
+<script>
+import FooterMusic from "@/components/item/FooterMusic"
+export default {
+  name: 'App',
+  components: {
+    FooterMusic,
   }
+};
+</script>
+
+<style lang="less"> // 没有scoped
+* { // 设置通配符
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.icon { // 设置图标大小
+  width: .5rem;
+  height: .5rem;
+  // width 和 height 属性包括内容，内边距和边框，但不包括外边距, content-box与之相反
+  box-sizing: border-box; 
+}
+a {
+  color: black;
 }
 </style>
